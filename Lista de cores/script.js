@@ -13,10 +13,19 @@ const corEscolhida = {
   white: '#ffffff',
   gray: '#808080'
 }
+function adicionarCor(){
+  const valorCor = cor.value;
 
-botao.addEventListener('click', function(){
+if(corEscolhida[valorCor]){
     const lista = document.createElement('li');
-    lista.textContent = cor.value;
+    lista.textContent = `${cor.value}, ${corEscolhida[valorCor]}`;
+    lista.style.backgroundColor = corEscolhida[valorCor];
     resultadoLista.appendChild(lista);
     cor.value = '';
+}
+}
+cor.addEventListener('keydown', function(enter) {
+  if (enter.key === 'Enter') {
+    adicionarCor();
+  }
 })
